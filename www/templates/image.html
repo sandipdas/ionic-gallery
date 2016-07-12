@@ -1,0 +1,51 @@
+<ion-view hide-nav-bar1="true" view-title="">
+    <ion-content class="full-height" scroll="false">
+        <!-- <button class="button back-button buttons button-clear slider-page-back-button" ng-click="$ionicGoBack()" style="">
+            <i class="icon ion-android-arrow-back">
+            </i>
+        </button> -->
+        <ion-slide-box class="slider-container" id="image-slider" on-slide-changed="slideHasChanged()" show-pager="false">
+            <ion-slide ng-repeat="i in image_slides">
+                <!-- <div class="box">
+                    <img class="slider-image" ng-src="{{i.src}}"/>
+                </div> -->
+                <table align="center" height="100%" valign="center" width="100%">
+                    <tr>
+                        <td class="box" style="    vertical-align: middle;">
+                            <img class="slider-image" ng-src="{{i.src}}"/>
+                        </td>
+                    </tr>
+                </table>
+            </ion-slide>
+        </ion-slide-box>
+        <!-- <div class="bar bar-footer">
+            
+        </div> -->
+    </ion-content>
+    <ul class="slider-page-footer">
+        <li>
+            <button class="button button-fab icon ion-gear-a" href="#">
+            </button>
+            <br/>
+            Settings
+        </li>
+        <li>
+            <button class="button button-fab icon ion-android-favorite-outline" href="#">
+            </button>
+            <br/>
+            Like
+        </li>
+        <li>
+            <button class="button button-fab icon ion-checkmark-round" href="#">
+            </button>
+            <br/>
+            Wallpaper
+        </li>
+        <li>
+            <button class="button button-fab icon ion-share" href="#">
+            </button>
+            <br/>
+            Share
+        </li>
+    </ul>
+</ion-view>

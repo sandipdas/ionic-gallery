@@ -1,0 +1,15 @@
+<ion-view view-title="Favorites">
+    <ion-content>
+          <ion-refresher
+          pulling-text="Pull to refresh..."
+          on-refresh="vm.doRefresh()">
+          </ion-refresher>
+        <div class="category-img loading cat-col-2" style="box-shadow:none;">
+            <div class="center-cropped" ng-repeat="img in vm.fav_list_images track by $index" style="background-image: url('{{img.previewUrl}}');" ng-click="vm.openSlider($event, $index)">
+            </div>
+        </div>
+
+        <ion-infinite-scroll distance="10%" immediate-check="true" ng-if="vm.hasMoreImages" on-infinite="vm.loadMore()">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

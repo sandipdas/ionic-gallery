@@ -1,0 +1,74 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar align-title="left" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight, 'nav-bar-transparent': navBarTransparent}">
+            <ion-nav-back-button class="no-text" ripple>
+            </ion-nav-back-button>
+              <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon button-dark" menu-toggle="left" class="no-text" ripple>
+                </button>
+              </ion-nav-buttons>
+            <ion-nav-buttons side="right" class="padding-right">
+                <button class="button button-icon button-clear ion-android-search no-text button-dark" ng-click="showFilterBar()" ng-show="displaySearchButton" ripple></button>
+                <!-- <button class="button button-icon button-clear ion-android-more-vertical button-dark" menu-toggle="right"> -->
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="fabContent">
+        </ion-nav-view>
+        <ion-nav-view name="menuContent" ng-class="{expanded: isExpanded}">
+        </ion-nav-view>
+        <div class="bar bar-footer bar-stable select-footer" ng-show="isSelectSate">
+            <!-- <h1 class="title">bar-stable</h1> -->
+            <div class="button-bar">
+                <button class="button pull-right1 button-icon button-small ion-android-favorite-outline" ng-click="addToFavBulk()" ripple ng-disabled="selectedImages.length == 0"></button>
+                <button class="button pull-right1 button-icon button-small ion-image" ng-click="setAsWallpaperThisImage()" ripple ng-disabled="selectedImages.length > 1 || selectedImages.length == 0"></button>
+                <button class="button pull-right1 button-icon button-small ion-android-arrow-down" ripple ng-disabled="selectedImages.length > 1 || selectedImages.length == 0" ng-click="downloadSelectedImage()"></button>
+                <button class="button pull-right1 button-icon button-small ion-ios-close-empty" ng-click="stopTouchPlay()" ripple></button>
+            </div>
+        </div>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <!-- <ion-header-bar class="dark-bg1 expanded">
+            
+            <h2> Gallary </h2>
+        </ion-header-bar> -->
+        <ion-content class="stable-bg1 has-expanded-header" scroll="false">
+            <div class="avatar-container">
+                <span class="avatar motion spin fade">
+                </span>
+            </div>
+            <ion-list>
+                <ion-item menu-close="" nav-clear="" ui-sref="app.imagelist({searchCriteria:{category:'all'}})" ripple>
+                    <i class="icon ion-image"></i> Photos
+                </ion-item>
+                <ion-item menu-close="" nav-clear="" ui-sref="app.category" ripple>
+                    <i class="icon ion-images"></i> Category
+                </ion-item>
+                <!-- <ion-item menu-close="" nav-clear="" ng-click="vm.editorChoice()" ripple ng-show="showSearchCriteriaSwitch" >
+                    <a class="item-content">
+                        
+                        <ion-toggle ng-model="changeSearchEditorChoice" ng-change="editorChoice()" toggle-class="toggle-assertive">
+                        <i class="icon ion-ribbon-b"></i>
+                        Editor Choice
+                        </ion-toggle>
+                    </a>
+                </ion-item> -->
+                <ion-toggle ng-model="changeSearchEditorChoice" ng-change="editorChoice()" toggle-class="toggle-assertive" ng-show="showSearchCriteriaSwitch">
+                        <i class="icon ion-ribbon-b"></i>
+                        Editor Choice
+                </ion-toggle>
+                <ion-item href="#/app/favlist" menu-close="" nav-clear="" ripple>
+                   <i class="icon ion-android-favorite-outline"></i> Favorite
+                </ion-item>
+                <ion-item href="#/app/search" menu-close="" nav-clear="" ripple>
+                   <i class="icon ion-gear-a"></i> Settings
+                </ion-item>
+            </ion-list>
+            <!-- <div class="bar bar-footer">
+                <ion-toggle ng-model="changeSearchCriteriaOrientation"  ng-show="showSearchCriteriaSwitch" ng-change="toggleSearchCriteriaOrientation()" toggle-class="toggle-assertive">
+                Safe Search 
+                </ion-toggle>
+            </div> -->
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

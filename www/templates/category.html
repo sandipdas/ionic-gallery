@@ -1,0 +1,25 @@
+<ion-view>
+    <ion-content>
+	    <!-- <div id="carousel-fashion" class="carousel-wrapper">
+		    <a-carousel
+		        carousel-options="::vm.carouselOptions['fashion']"
+		        array-provider="::vm.catImages"
+		        on-select="vm.onSelectCarousel('fashion',item)">
+			</a-carousel>
+		 </div> -->
+	    <div ng-repeat="(i,v) in vm.catImages" class="category-img loading cat-col-2" ng-class="{loading: vm.isLoading[i], 'error': vm.isError[i]}">
+			<div  class="category-img-header">
+				{{i | uppercase}} 
+				<button class="button button-small button-assertive1 no-text" ripple ng-click="vm.showMore(i)">
+					More
+				</button>
+			</div>
+			<ion-spinner class="loader"></ion-spinner>
+			<div class="error-message"><i class="icon ion-sad-outline"></i> Can not load images</div>
+			<div class="center-cropped" ng-repeat="img in vm.catImages[i] track by $index" style="background-image: url('{{img.previewUrl}}');" ng-click="vm.openSlider($event, i,$parent.$index, $index)">
+	        </div>
+	    </div>
+    </ion-content>
+</ion-view>
+
+

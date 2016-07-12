@@ -1,0 +1,30 @@
+<ion-view view-title="{{vm.viewTitle}}">
+    <ion-content id="tab-scroll-container" scroll-watch>
+    
+        <!--  <div class="item item-image">
+           <svg id="full-svg-text" xmlns="http://www.w3.org/2000/svg" version="1.1"> 
+                <title></title>
+                <defs>
+                    <pattern id="pattern" 
+                             patternUnits="userSpaceOnUse"
+                             width="30" height="30"  x="0" y="0">
+                      <image xlink:href="img/pattern.jpg" width="30" height="30" />
+                    </pattern>
+                </defs>
+                <text x="10%" y="60%" fill="white" >Love the image</text>
+                <text x="70%" y="80%" fill="white" style="font-size:16">-by Sandi</text>
+            </svg>
+        </div> -->
+          <ion-refresher
+          pulling-text="Pull to refresh..."
+          on-refresh="vm.doRefresh()" on-pulling="vm.doPulling()" >
+          </ion-refresher>
+        <div id="brick-container" class="brick-2"  on-hold="touchPlay($event)">
+            <a  class="brick-item loading" ng-repeat="i in images" ui-sref1="app.image({id: $index})" on-tap="vm.openSlider($event, $index)" data-id="{{i.id}}">
+                <img alt="" class="demo-image1" ng-src="{{i.previewUrl}}"/>
+            </a>
+        </div>
+        <ion-infinite-scroll distance="10%" immediate-check="true" ng-if="hasMoreImages" on-infinite="vm.loadMore()">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>
